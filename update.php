@@ -34,13 +34,12 @@ include "model.php";
     </nav>
     
     <div class="container rows">
-    <div class="heading pr-5 pb-5"><h1>Registration</h1></div>
+    <div class="heading pr-5 pb-5"><h1>Update</h1></div>
         <form method="post" action="model.php">
             <?php
                 $myrow=$obj->select("employees",$_GET["id"]);
                 foreach($myrow as $row):
                     
-            
             ?>
             <div class="form-group row">
                 <label for="name" class="col-sm-2 col-form-label">Name</label>
@@ -54,20 +53,23 @@ include "model.php";
                     <input type="email" value="<?php echo $row['email'];?>" class="form-control" name="email" id="email" placeholder="Email">
                 </div>
             </div>
+            <?php
+                $gender['check']=array($row["gender"]);
+            ?>
             <div class="form-group">
                 <div class="row">
                     <legend class="col-form-label col-sm-2 pt-0">Gender</legend>
                     <div class="col-sm-10">
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="other">
+                            <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="other" <?php echo in_array('other',$gender['check']) ? 'checked' : ''; ?> >
                             <label class="form-check-label" for="inlineRadio1">Other</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="male">
+                            <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="male" <?php echo in_array('male',$gender['check']) ? 'checked' : ''; ?> >
                             <label class="form-check-label" for="inlineRadio2">Male</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="gender" id="inlineRadio3" value="female">
+                            <input class="form-check-input" type="radio" name="gender" id="inlineRadio3" value="female" <?php echo in_array('female',$gender['check']) ? 'checked' : ''; ?> >
                             <label class="form-check-label" for="inlineRadio3">Female</label>
                         </div>
                     </div>
@@ -89,27 +91,30 @@ include "model.php";
             
             
             <fieldset class="form-group">
+                <?php
+                    $hobby['selected']=explode(',',$row['hobbies']);
+                ?>
                 <div class="row">
                     <legend class="col-form-label col-sm-2 pt-0">Hobbies</legend>
                     <div class="col-sm-10">
                         <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" value="cricket" name="hobbies[]" id="customCheck1">
+                            <input type="checkbox" class="custom-control-input" value="cricket" name="hobbies[]" id="customCheck1" <?php echo in_array('cricket',$hobby['selected']) ? 'checked' : ''; ?> >
                             <label class="custom-control-label" for="customCheck1">Cricket</label>
                         </div>
                         <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" value="football" name="hobbies[]" id="customCheck2">
+                            <input type="checkbox" class="custom-control-input" value="football" name="hobbies[]" id="customCheck2" <?php echo in_array('football',$hobby['selected']) ? 'checked' : ''; ?> >
                             <label class="custom-control-label" for="customCheck2">Football</label>
                         </div>
                         <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" value="fighter" name="hobbies[]" id="customCheck3">
+                            <input type="checkbox" class="custom-control-input" value="fighter" name="hobbies[]" id="customCheck3" <?php echo in_array('fighter',$hobby['selected']) ? 'checked' : ''; ?> >
                             <label class="custom-control-label" for="customCheck3">Fighter</label>
                         </div>
                         <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" value="movies" name="hobbies[]" id="customCheck4">
+                            <input type="checkbox" class="custom-control-input" value="movies" name="hobbies[]" id="customCheck4" <?php echo in_array('movies',$hobby['selected']) ? 'checked' : ''; ?>  >
                             <label class="custom-control-label" for="customCheck4">Movies</label>
                         </div>
                         <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" value="other" name="hobbies[]" id="customCheck5">
+                            <input type="checkbox" class="custom-control-input" value="other" name="hobbies[]" id="customCheck5" <?php echo in_array('other',$hobby['selected']) ? 'checked' : ''; ?> >
                             <label class="custom-control-label" for="customCheck5">Other's</label>
                         </div>
                     </div>
