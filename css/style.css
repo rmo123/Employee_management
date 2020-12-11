@@ -1,0 +1,33 @@
+/* 
+.col-form-label{
+    border:1px solid black;
+    margin-right: 20px;
+} */
+.rows{
+    padding:80px;
+    /* margin:50px; */
+}
+.table-sortable th {
+    cursor: pointer;
+  }
+  
+  .table-sortable .th-sort-asc::after {
+    content: "\25b4";
+    font-size: 28px;
+  }
+  
+  .table-sortable .th-sort-desc::after {
+    content: "\25be";
+    font-size: 28px;
+
+  }
+  
+  .table-sortable .th-sort-asc::after,
+  .table-sortable .th-sort-desc::after {
+    margin-left: 5px;
+  }
+  
+  .table-sortable .th-sort-asc,
+  .table-sortable .th-sort-desc {
+    background: rgba(0, 0, 0, 0.1);
+  }

@@ -1,0 +1,31 @@
+input[type=checkbox]:checked + td {color: red};
+.table-sortable th {
+    cursor: pointer;
+  }
+  
+  .table-sortable .th-sort-asc::after {
+    content: "\25b4";
+    font-size: 28px;
+    /* border:1px solid black; */
+    padding-top:-7em;
+  }
+  
+  .table-sortable .th-sort-desc::after {
+    content: "\25be";
+    font-size: 28px;
+    padding-top:-7em;
+    /* border:1px solid black; */
+
+
+  }
+  
+  .table-sortable .th-sort-asc::after,
+  .table-sortable .th-sort-desc::after {
+    margin-left: 25px;
+  }
+  
+  .table-sortable .th-sort-asc,
+  .table-sortable .th-sort-desc {
+    background: rgba(0, 0, 0, 0.1);
+  }
+  
