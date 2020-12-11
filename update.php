@@ -32,25 +32,26 @@ include "model.php";
             </ul>
         </div>
     </nav>
-    <?php
-        $myrow=$obj->select("employees",$_GET["id"]);
-        foreach($myrow as $row){
-            echo $row['name'];
-        }
-    ?>
+    
     <div class="container rows">
     <div class="heading pr-5 pb-5"><h1>Registration</h1></div>
         <form method="post" action="model.php">
+            <?php
+                $myrow=$obj->select("employees",$_GET["id"]);
+                foreach($myrow as $row):
+                    
+            
+            ?>
             <div class="form-group row">
                 <label for="name" class="col-sm-2 col-form-label">Name</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" value="radh" name="name" id="name" placeholder="Name">
+                    <input type="text" class="form-control" value="<?php echo $row['name'];?>" name="name" id="name" placeholder="Name">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="email" class="col-sm-2 col-form-label">Email</label>
                 <div class="col-sm-10">
-                    <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                    <input type="email" value="<?php echo $row['email'];?>" class="form-control" name="email" id="email" placeholder="Email">
                 </div>
             </div>
             <div class="form-group">
@@ -75,13 +76,13 @@ include "model.php";
             <div class="form-group row">
                 <label for="date" class="col-2 col-form-label">Date</label>
                 <div class="col-10">
-                    <input class="form-control" oninput="Dobfunction()" type="date" name="dob" min="1965-01-01" max="2010-01-01"  id="date">
+                    <input class="form-control" oninput="Dobfunction()" value="<?php echo $row['dob'];?>" type="date" name="dob" min="1965-01-01" max="2010-01-01"  id="date">
                 </div>
             </div>
             <div class="form-group row">
                 <label for="age" class="col-sm-2 col-form-label">Age</label>
                 <div class="col-sm-10">
-                    <input type="number" name="age" class="form-control" id="age" placeholder="Age">
+                    <input type="number" name="age" class="form-control" value="<?php echo $row['age'];?>" id="age" placeholder="Age">
                 </div>
             </div>
            
@@ -120,6 +121,9 @@ include "model.php";
                 </div>
             </div>
         </form>
+        <?php
+            endforeach;
+        ?>
     </div>
    
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
