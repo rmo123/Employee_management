@@ -35,7 +35,7 @@ include "model.php";
     
     <div class="container rows">
     <div class="heading pr-5 pb-5"><h1>Update</h1></div>
-        <form method="post" action="model.php">
+        <form method="post" action="model.php?id=<?php echo $_GET["id"];?>">
             <?php
                 $myrow=$obj->select("employees",$_GET["id"]);
                 foreach($myrow as $row):
@@ -122,7 +122,7 @@ include "model.php";
             </fieldset>        
             <div class="form-group row">
                 <div class="col-sm-10">
-                <button type="submit" name="register" class="btn btn-primary ">Sign in</button>
+                <button type="submit" name="update" class="btn btn-primary ">Sign in</button>
                 </div>
             </div>
         </form>

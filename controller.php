@@ -4,10 +4,10 @@ include "connection.php";
 
 class DataOperation extends Database
 {
-    public function insert($table, $fileds){
+    public function insert($table, $fields){
         $sql = "INSERT INTO ".$table;
-        $sql .= "(".implode(",", array_keys($fileds)).") VALUES";
-        $sql .= "('".implode("','", array_values($fileds))."')";
+        $sql .= "(".implode(",", array_keys($fields)).") VALUES";
+        $sql .= "('".implode("','", array_values($fields))."')";
         $query=mysqli_query($this->connection,$sql);
         if($query){
             return true;
@@ -33,6 +33,20 @@ class DataOperation extends Database
             }
             return $array;
 
+        }
+    }
+    public function update($table,$id,$myarray)
+    {
+        $sql="";
+        foreach($myarray as $key=> $value)
+        {
+            $sql .= $key . "='" . $value ."', ";
+        }
+        $sql=substr($sql,0,-2);
+        $sql ="UPDATE ".$table." SET ".$sql." WHERE e_id=".$id;
+        // echo $sql;
+        if(mysqli_query($this->connection,$sql)){
+            return true;
         }
     }
     public function delete($table, $id)
