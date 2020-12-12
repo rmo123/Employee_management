@@ -38,27 +38,15 @@
         <div class="d-flex justify-content-between">
             <div class="paginationpage">
                 
-                <div class="form-group">
-                <select name="state" id="maxRows" class="form-control" style="width:130px;">
-                        <option value="5000">Select rows</option>
-                        <option value="5">5</option>
-                        <option value="10">10</option>
-                        <option value="15">15</option>
-                        <option value="20">20</option>
-                        <option value="50">50</option>
-                        <option value="70">70</option>
-                        <option value="100">100</option>
-                    </select>
-                </div>
+
             </div>
-            <div class="">
-                <form class="form-inline">
-                    <input class="form-control mr-sm-2" id="search" type="text" placeholder="Search data">
-                </form>
+            <div class="pb-3">
+                <form method="post" class="form-inline" action="phpadmin.php">
+                    <input class="form-control mr-sm-2" id="search" type="text" name="search" placeholder="Search">
+                    <button class="btn btn-outline-primary my-2 my-sm-0" name="searchbtn" value="Filter" type="submit">Search</button>
             </div>
         </div>
         <div class="table-responsive">
-            <form action="model.php" method="post">
                 <table  id="employee_table" class="table table-bordered table-hover table-sortable">
                     <thead>
                         <tr>
@@ -78,7 +66,7 @@
                     </thead>
                     <tbody>
                         <?php
-                            $myrow=$obj->fetch("employees");
+                            echo $row_num;
                             foreach($myrow as $row):
                         ?>
                         
@@ -141,8 +129,8 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="js/check.js"></script>
-    <script src="js/new.js"></script>
+    <script src="js/check2.js"></script>
+    <!-- <script src="js/new.js"></script> -->
     <!-- <script src="js/jquery-3.5.1.min.js"></script> -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <?php

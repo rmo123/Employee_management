@@ -27,7 +27,6 @@ if(isset($_GET["select"]))
 if(isset($_POST["update"]))
 {
     $id=$_GET["id"];
-    // $where=array("id"=>$id);
     $myArray=array(
         "name" => $_POST["name"],
         "email" => $_POST["email"],
@@ -42,9 +41,19 @@ if(isset($_POST["update"]))
         header("location:admin");
     }
 }
+if(isset($_POST["multiple"]))
+{
+    $checkbox=$_POST['ids'];
+    foreach($checkbox as $id)
+    {
+        $obj->multiple("employees",$id);
+    } 
+    $_SESSION['status']= "Multiple Delete Successfully";
+    $_SESSION['status_code']= "thank you very much";
+    header("location:admin");
+}
 if(isset($_GET["delete"]))
 {
-    
     $id= $_GET["id"];
     if($obj->delete("employees",$id)){
        
@@ -59,5 +68,14 @@ if(isset($_GET["delete"]))
         header("location:admin");
     }
 }
-
+if(isset($_POST["searchbtn"]))
+{
+    $searchq=$_POST["search"];
+    $searchq=preg_replace("#[^0-9a-z]#i","",$searchq);
+    $myrow=$obj->search("employees",$searchq);
+}
+else
+{
+    $myrow=$obj->fetch("employees");
+}
 ?>
