@@ -26,6 +26,9 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="registration">Register <span class="sr-only">(current)</span></a>
                 </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="admin">jquery table <span class="sr-only">(current)</span></a>
+                </li>
             </ul>
             
         </div>
@@ -66,7 +69,7 @@
                     </thead>
                     <tbody>
                         <?php
-                            echo $row_num;
+                            
                             foreach($myrow as $row):
                         ?>
                         

@@ -87,10 +87,6 @@ class DataOperation extends Database
         return $array;
 
     }
-    public function search($table)
-    {
-        
-    }
     
 }
 
