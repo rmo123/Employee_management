@@ -1,13 +1,17 @@
 $(function () {
     $("#showhide").click(function () {
         if ($(this).is(":checked")) {
-            $(".show").show();
+            // $(".show").show();
             $(".btns").hide();
+            $(".docx").show();
+
            
 
         } else {
-            $(".show").hide();
+            // $(".show").hide();
             $(".btns").show();
+            $(".docx").hide();
+
         }
     });
 });

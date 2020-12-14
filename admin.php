@@ -42,7 +42,7 @@
             <div class="paginationpage">
                 
                 <div class="form-group">
-                <select name="state" id="maxRows" class="form-control" style="width:130px;">
+                    <select name="state" id="maxRows" class="form-control" style="width:130px;">
                         <option value="5000">Select rows</option>
                         <option value="5">5</option>
                         <option value="10">10</option>
@@ -52,6 +52,11 @@
                         <option value="70">70</option>
                         <option value="100">100</option>
                     </select>
+                </div>
+                <div class="docx" style="text-align:center;display:none;">
+                    <label for="checkall">Check all
+                        <input type="checkbox" name="checkall" id="checkall">
+                    </label>
                 </div>
             </div>
             <div class="">

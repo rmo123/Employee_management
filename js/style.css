@@ -1,3 +1,13 @@
+
+
+
+
+
+
+
+
+
+
 input[type=checkbox]:checked + td {color: red};
 .table-sortable th {
     cursor: pointer;
