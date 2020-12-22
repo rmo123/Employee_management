@@ -89,3 +89,7 @@ $(function () {
         }
     });
 });
+
+$("#checkall").change(function(){
+    $(".checkboxitem").prop("checked", $(this).prop("checked"));
+})

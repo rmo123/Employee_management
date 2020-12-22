@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="form1" method="get" onsubmit="return validate()">
+        <input type="checkbox" id="check1" name="container" value="Like">LIKE
+        <input type="checkbox" id="check2" name="container" value="SHARE">SHARE
+        <input type="checkbox" id="check3" name="container" value="SUBS">SUBS
+        <p id="demo" style="color:red; font-size:20px;"></p>
+        <input type="submit" value="submit">        
+    </form>
+    <script>
+        function validate()
+        {
+            var choice1=document.getElementById("check1").checked;
+            var choice2=document.getElementById("check2").checked;
+            var choice3=document.getElementById("check3").checked;
+            if ((choice1=="") && (choice2=="") && (choice3==""))
+            {
+                document.getElementById("demo").innerHTML = "rerere";
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>

@@ -13,7 +13,9 @@ if(isset($_POST["register"]))
         "dob" => $_POST["dob"]
     );
     if($obj->insert("employees",$myArray)){
-        header("location:registration");
+        $_SESSION['status']= "Insert Successfully";
+        $_SESSION['status_code']= "wellcome ".$_POST["name"];
+        header("location:registrations");
     }
 }
 if(isset($_GET["select"]))
